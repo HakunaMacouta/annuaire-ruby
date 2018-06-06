@@ -9,10 +9,6 @@
   <%- if @photo.errors[:file].present? %>
     <span><%= @photo.errors[:file].to_sentence %></span>
   <%- end %>
-  <%= f.label :user_id %>
-  <%= f.collection_select :user_id, User.all, :id, :full_name %>
-  <%- if @photo.errors[:user_id].present? %>
-    <span><%= @photo.errors[:user_id].to_sentence %></span>
-  <%- end %>
+  <span><%= @user.full_name %></span>
   <%= f.submit %>
 <% end %>

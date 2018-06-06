@@ -8,7 +8,6 @@
     <th>Phone Number</th>
     <th>Email</th>
     <th>Birthdate</th>
-    <th>Photo</th>
   </tr>
   </thead>
   <tbody>
@@ -18,15 +17,7 @@
       <td><%= user.phone_number %></td>
       <td><%= user.email %></td>
       <td><%= user.date_of_birth %></td>
-      <td>
-        <ul>
-          <% if user.photos
-               user.photos.each do |photo| %>
-          <li><%= photo.name %></li>
-          <% end end %>
-        </ul>
-
-      </td>
+      <td><%= link_to "photos", user_photos_path(user) %></td>
       <td><%= link_to "delete", user_path(user), method: :delete, confirm: "nrv ?" %></td>
     </tr>
   <%- end %>

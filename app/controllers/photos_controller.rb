@@ -1,8 +1,8 @@
 class PhotosController < ApplicationController
-  before_action :load_photo, only: [:show, :edit, :update, :destroy]
   before_action :load_user
+  before_action :load_photo, only: [:show, :edit, :update, :destroy]
   def index
-    @photos = Photo.where(user_id: @user)
+    @photos = @user.photos
   end
   def update
     if @photo.update(photos_params)
@@ -16,6 +16,7 @@ class PhotosController < ApplicationController
   end
   def create
     @photo = Photo.new(photos_params)
+	@photo.user_id = @user.id;
     if @photo.save
       redirect_to [@user, @photo]
     else
@@ -23,7 +24,7 @@ class PhotosController < ApplicationController
     end
   end
   def load_photo
-    @photo = Photo.find(params[:id])
+    @photo = @user.photos.find(params[:id])
   end
   def load_user
 	@user = User.find(params[:user_id])

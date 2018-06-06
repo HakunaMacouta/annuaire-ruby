@@ -14,11 +14,10 @@
       <tr>
         <td><%= link_to photo.name, [@user, photo] %></td>
         <td><%= photo.file %></td>
-        <td><%= link_to photo.user.full_name, photo.user %></td>
         <td><%= link_to "delete", [@user, photo], method: :delete, confirm: "nrv ?" %></td>
       </tr>
     <%- end %>
   </tbody>
 </table>
-
+<div><%= link_to @user.full_name, @user %></div>
 <div><%= link_to 'New photo', new_user_photo_path(@user, @photo) %></div>
