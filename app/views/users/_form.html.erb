@@ -1,0 +1,28 @@
+<%= form_for @user do |f| %>
+  <%= f.label :first_name %>
+  <%= f.text_field :first_name %>
+  <%- if @user.errors[:first_name].present? %>
+    <span><%= @user.errors[:first_name].to_sentence %></span>
+  <%- end %>
+  <%= f.label :last_name %>
+  <%= f.text_field :last_name %>
+  <%- if @user.errors[:last_name].present? %>
+    <span><%= @user.errors[:last_name].to_sentence %></span>
+  <%- end %>
+  <%= f.label :email %>
+  <%= f.text_field :email %>
+  <%- if @user.errors[:email].present? %>
+    <span><%= @user.errors[:email].to_sentence %></span>
+  <%- end %>
+  <%= f.label :phone_number %>
+  <%= f.text_field :phone_number %>
+  <%- if @user.errors[:phone_number].present? %>
+    <span><%= @user.errors[:phone_number].to_sentence %></span>
+  <%- end %>
+  <%= f.label :date_of_birth %>
+  <%= f.date_select :date_of_birth %>
+  <%- if @user.errors[:date_of_birth].present? %>
+    <span><%= @user.errors[:date_of_birth].to_sentence %></span>
+  <%- end %>
+  <%= f.submit %>
+<% end %>

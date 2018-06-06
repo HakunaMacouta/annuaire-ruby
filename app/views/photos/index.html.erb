@@ -1,0 +1,24 @@
+<h2>
+  Liste des photos
+</h2>
+<table class="table">
+  <thead>
+  <tr>
+    <th>name</th>
+    <th>file</th>
+    <th>user id</th>
+  </tr>
+  </thead>
+  <tbody>
+    <%- @photos.each do |photo| %>
+      <tr>
+        <td><%= link_to photo.name, [@user, photo] %></td>
+        <td><%= photo.file %></td>
+        <td><%= link_to photo.user.full_name, photo.user %></td>
+        <td><%= link_to "delete", [@user, photo], method: :delete, confirm: "nrv ?" %></td>
+      </tr>
+    <%- end %>
+  </tbody>
+</table>
+
+<div><%= link_to 'New photo', new_user_photo_path(@user, @photo) %></div>
